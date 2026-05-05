@@ -1,0 +1,14 @@
+{
+  "name": "splitcard",
+  "private": true,
+  "scripts": {
+    "dev:infra": "docker compose up -d",
+    "dev:migrate": "cd core-service && npm run migrate",
+    "dev:seed": "cd core-service && npm run seed",
+    "dev:core": "cd core-service && npm run dev",
+    "dev:bff": "cd bff && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev": "npm run dev:infra && sleep 3 && npm run dev:core & npm run dev:bff & npm run dev:frontend",
+    "dev:setup": "npm run dev:infra && sleep 3 && npm run dev:migrate && npm run dev:seed"
+  }
+}
